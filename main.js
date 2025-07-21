@@ -1,15 +1,17 @@
 const but = document.querySelector('#click')
 const spawn = document.querySelector('#spawn')
+
+//создам сердца случайного размера, прозрачности и положения
 function createHearts() {
-  
+
   const plusOne = document.createElement('div');
   plusOne.classList.add('plus-one');
   plusOne.textContent = '❤';
-  plusOne.style.left = `${Math.random()*300}px`;
+  plusOne.style.left = `${Math.random()*100}%`;
   plusOne.style.opacity = `${Math.random()}`;
   plusOne.style.fontSize = `${Math.random()*100}px`;
 
-  spawn.parentElement.appendChild(plusOne);
+  spawn.appendChild(plusOne);
 
   setTimeout(() => {
       plusOne.remove();
@@ -20,6 +22,8 @@ setInterval(() => {
   createHearts()
 }, 100)
 
+
+// обробатываем нажатие на кнопку в центре
 but.addEventListener('click', () => {
   if (but.className == '-1') {
     but.innerHTML = 'Знаешь, что..'
